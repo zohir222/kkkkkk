@@ -16,7 +16,7 @@ function Registration() {
     }
 
     const onSubmit = (data)=>{
-        axios.post("http://localhost:3001/Users" , data).then( (responce)=> {
+        axios.post("https://kkkkkbackend-production.up.railway.app/Users" , data).then( (responce)=> {
         window.alert("Logged succefully") ;
         navigate("/");
         } )

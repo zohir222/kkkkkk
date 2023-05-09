@@ -7,7 +7,7 @@ function Home() {
     const [postState , setPostState] = useState([]) ;
 
     useEffect(()=>{
-        axios.get("http://localhost:3001/Posts").then( (responce)=> {
+        axios.get("https://kkkkkbackend-production.up.railway.app/Posts").then( (responce)=> {
         setPostState(responce.data) ;
         } )
     } , [])
@@ -15,7 +15,7 @@ function Home() {
     const navigate = useNavigate();
 
     const likeaPost = (postId)=>{
-        axios.post( "http://localhost:3001/Likes" , { PostId : postId } , { headers : { accessToken : localStorage.getItem("accessToken") }  } )
+        axios.post( "https://kkkkkbackend-production.up.railway.app/Likes" , { PostId : postId } , { headers : { accessToken : localStorage.getItem("accessToken") }  } )
         .then((responce)=> {
             alert(responce.data);
             setPostState(postState.map((likedPost)=> 

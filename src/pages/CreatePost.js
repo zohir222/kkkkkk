@@ -15,7 +15,7 @@ function CreatePost() {
     }
 
     const onSubmit = (data)=>{
-        axios.post("http://localhost:3001/Posts" , data , { 
+        axios.post("https://kkkkkbackend-production.up.railway.app/Posts" , data , { 
            headers : {  accessToken : localStorage.getItem ("accessToken")  }
         } ).then( (responce)=> {
           if (responce.data.error){

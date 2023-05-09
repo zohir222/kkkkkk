@@ -16,7 +16,7 @@ function Login() {
 
     const submit = ()=>{
         const data = {userName : name , passWord : passWord}
-        axios.post("http://localhost:3001/Users/Login" , data).then( (responce)=> {
+        axios.post("https://kkkkkbackend-production.up.railway.app/Users/Login" , data).then( (responce)=> {
         if (responce.data.error){
             alert(responce.data.error)
         }

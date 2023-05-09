@@ -16,16 +16,16 @@ function Post() {
     let {id} = useParams();
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/Posts/Byid/${id}`).then( (responce)=> {
+        axios.get(`https://kkkkkbackend-production.up.railway.app/Posts/Byid/${id}`).then( (responce)=> {
         setPostState(responce.data) ;
         } );
-        axios.get(`http://localhost:3001/Comments/${id}`).then( (responce)=> {
+        axios.get(`https://kkkkkbackend-production.up.railway.app/Comments/${id}`).then( (responce)=> {
           setComments(responce.data) ;
         } )
     } , [id ])
 
     const addComment = ()=>{
-      axios.post(`http://localhost:3001/Comments/` , 
+      axios.post(`https://kkkkkbackend-production.up.railway.app/Comments/` , 
       { commentBody : newComments , username : authstate.userName , PostId : id  } ,
       {headers : { accessToken : localStorage.getItem ("accessToken") }} )
       .then ( (responce) => {
@@ -33,7 +33,7 @@ function Post() {
           alert(responce.data.error);
         }
         else {     
-          axios.get(`http://localhost:3001/Comments/${id}`).then( (responce)=> {
+          axios.get(`https://kkkkkbackend-production.up.railway.app/Comments/${id}`).then( (responce)=> {
             setComments(responce.data) ;})
           setNewComments("");
           
@@ -43,7 +43,7 @@ function Post() {
     }
 
     const deleteComment = (idd)=>{
-      axios.delete(`http://localhost:3001/Comments/${idd}`, {
+      axios.delete(`https://kkkkkbackend-production.up.railway.app/Comments/${idd}`, {
         headers : { accessToken : localStorage.getItem("accessToken") }
       } ).then( (responce)=> {
         setComments(comments.filter( (val)=> {return val.id !== idd } ));
